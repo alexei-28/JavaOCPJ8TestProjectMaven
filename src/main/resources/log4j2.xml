@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Levels from lowest to highest are:
+    ALL, TRACE, DEBUG, INFO, WARN, ERROR, FATAL, OFF.
+    The root category is used for all loggers unless a more specific logger matches.
+    If none of the loggers are assigned a level, then all loggers inherit
+    the level of the root logger which is set to DEBUG by default
+ -->
+<Configuration package="log4j.test" status="WARN">
+    <Properties>
+        <Property name="patterLayout">%d{[dd.MM.yyyy HH:mm:ss.SSS]} [%t] %l %p:%n %m%n</Property>
+    </Properties>
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${patterLayout}"/>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Root level="trace">
+            <AppenderRef ref="Console"/>
+        </Root>
+    </Loggers>
+</Configuration>

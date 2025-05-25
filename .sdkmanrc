@@ -1,0 +1,15 @@
+# Enable auto-env through the sdkman_auto_env config
+# Add key=value pairs of SDKs to use below
+
+# JDK and class file format version:
+# Java SE 21 = 65
+# Java SE 17 = 61 (0x3D hex)
+# Java SE 11 = 55 (0x37 hex)
+# Java SE 8  = 52 (0x34 hex)
+#
+
+java=8.0.422.fx-zulu
+#java=jdk1.8.0_381
+#java=21-oracle
+maven=3.9.9
+mvnd=1.0.2
