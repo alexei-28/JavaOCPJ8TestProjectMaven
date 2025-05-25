@@ -6,9 +6,12 @@ import com.gmail.alexei28.ocpj8.anonymous.MyInterfaceAnonymous;
 import com.gmail.alexei28.ocpj8.anonymous.MyIoClient;
 import com.gmail.alexei28.ocpj8.anonymous.StatusListener;
 import com.gmail.alexei28.ocpj8.myabstractclass.AbstractCar;
+import com.gmail.alexei28.ocpj8.myenum.ValuesEnum;
 import com.gmail.alexei28.ocpj8.myinterface.MyInterface;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.Arrays;
 
 /**
  * Application's entry point
@@ -55,6 +58,10 @@ public class App {
 
         createAnonymousInstanceOfAbstractClass();
         createAnonymousInstanceOfInterface();
+
+        ValuesEnum valuesEnum[] = {ValuesEnum.LOW, ValuesEnum.HIGH, ValuesEnum.MEDIUTM};
+        Arrays.sort(valuesEnum);
+        logger.debug("value enum after sort = {}", Arrays.toString(valuesEnum));
     }
 
     public static void createAnonymousInstanceOfAbstractClass() {
