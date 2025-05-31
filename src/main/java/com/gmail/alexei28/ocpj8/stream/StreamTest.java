@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -17,8 +18,7 @@ public class StreamTest {
         logger.info("Java version: {}, Java vendor: {}", System.getProperty("java.version")
                 , System.getProperty("java.vendor"));
 
-        method3();
-        // new AbstractCar(); // 'AbstractCar' is abstract; cannot be instantiated
+        method4();
     }
 
     public static void method() {
@@ -51,4 +51,26 @@ public class StreamTest {
         logger.info("result = {}", result); // 5.333333333333333
     }
 
+    /*-
+        The peek() method is our final intermediate operation. It is useful for debugging because it
+        allows us to perform a stream operation without actually changing the stream.
+     */
+    private static void methodPeek() {
+        logger.debug("methodPeek");
+        Stream ints = Stream.of("A", "B", "C", "D");
+        ints.peek(System.out::println).skip(2).count();
+    }
+
+    private static void methodIdentity() {
+        logger.debug("methodIdentity");
+        Function function = Function.identity();
+        System.out.println(function.apply("Hello")); // Hello
+    }
+
+    private static void method4() {
+        logger.debug("method4");
+        Function<String, Double> function = (String it) -> Double.parseDouble(it);
+        Function<String, Double> function1 = function.andThen((Double s) -> s * 2);
+        System.out.println(function1.apply("9")); // 18.0
+    }
 }
