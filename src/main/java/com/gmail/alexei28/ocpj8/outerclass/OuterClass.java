@@ -11,20 +11,22 @@ public class OuterClass {
         logger.info("Java version: {}, Java vendor: {}", System.getProperty("java.version")
                 , System.getProperty("java.vendor"));
 
-        abstract class A {
+        abstract class InnerClassA {
             public abstract int calc(int x);
         }
+        //someMethod("test"); // compile error: Cannot resolve method 'someMethod' in 'OuterClas
 
         // anonymous inner class
-        A a = new A() {
+        InnerClassA anonymousInnerClass = new InnerClassA() {
+            @Override
             public int calc(int x) {
                 return x * x;
             }
 
-            public void print() {
-                logger.debug("Hello from anonymous inner class");
+            public void someMethod() {
+                logger.info("Hello from anonymous inner class {}", calc(3));
             }
         };
-        logger.info("result: {}",a.calc(2));
+        logger.info("anonymousInnerClass: {}",anonymousInnerClass.calc(2));
     }
 }
