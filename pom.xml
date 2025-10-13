@@ -81,14 +81,14 @@
       <scope>test</scope>
     </dependency>
 
-    <!--
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.13.1</version>
-      <scope>test</scope>
-    </dependency>
-    -->
+      <!-- usage:
+        ./mvnw clean install -Dotel.traces.exporter=otlp
+      -->
+      <dependency>
+          <groupId>io.opentelemetry.contrib</groupId>
+          <artifactId>opentelemetry-maven-extension</artifactId>
+          <version>1.50.0-alpha</version>
+      </dependency>
 
     <dependency>
       <groupId>org.assertj</groupId>
@@ -115,10 +115,6 @@
           <version>3.13.0</version>
         </plugin>
         <plugin>
-          <artifactId>maven-surefire-plugin</artifactId>
-          <version>3.3.0</version>
-        </plugin>
-        <plugin>
           <artifactId>maven-jar-plugin</artifactId>
           <version>3.4.2</version>
         </plugin>
@@ -139,10 +135,17 @@
           <artifactId>maven-project-info-reports-plugin</artifactId>
           <version>3.6.1</version>
         </plugin>
+
+          <!-- Or usage of parallel test execution (JUnit 4)
+             ./mvnw -Dparallel=classesAndMethods verify
+          -->
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-surefire-plugin</artifactId>
-          <version>3.0.0</version>
+          <version>3.5.3</version>
+            <configuration>
+                <parallel>classesAndMethods</parallel>
+            </configuration>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
