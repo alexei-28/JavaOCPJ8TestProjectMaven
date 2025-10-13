@@ -138,6 +138,9 @@
 
           <!-- Or usage of parallel test execution (JUnit 4)
              ./mvnw -Dparallel=classesAndMethods verify
+
+                or by Maven Demon
+             mvnd -Dparallel=classesAndMethods verify
           -->
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
