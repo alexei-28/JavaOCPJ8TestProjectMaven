@@ -16,7 +16,7 @@ import java.util.Arrays;
 /**
  * Application's entry point
  * Run by mvn:
- *   mvn compile exec:java -Dexec.mainClass="com.gmail.alexei28.ocpj8.App"
+ *   ./mvnw compile exec:java -Dexec.mainClass="com.gmail.alexei28.ocpj8.App"
  */
 
 public class App {
