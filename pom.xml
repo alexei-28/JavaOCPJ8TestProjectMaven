@@ -81,13 +81,19 @@
       <scope>test</scope>
     </dependency>
 
-      <!-- usage:
+      <!-- Usage of Maven Extension:
         ./mvnw clean install -Dotel.traces.exporter=otlp
       -->
       <dependency>
           <groupId>io.opentelemetry.contrib</groupId>
           <artifactId>opentelemetry-maven-extension</artifactId>
           <version>1.50.0-alpha</version>
+      </dependency>
+
+      <dependency>
+          <groupId>org.apache.maven.extensions</groupId>
+          <artifactId>maven-build-cache-extension</artifactId>
+          <version>1.2.0</version>
       </dependency>
 
     <dependency>
